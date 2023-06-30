@@ -1,91 +1,43 @@
 export default class Board {
 
-    constructor(ele){
-        this.ele = ele 
+    constructor(playerBoard){
+        this.playerBoard = playerBoard 
         this.handleClick = this.handleClick.bind(this)
+        this.zones = document.createElement('ul')
+        this.hand = document.createElement('ul')
         this.setDeck()
         this.setDiscard()
         this.playerHand()
         this.diceTray()
+        this.setUpZone()
+        this.selected = undefined
     }
 
 
-    setUpBoard(row=3){
-        const grid = document.createElement('ul')
-        grid.classList.add('zones')
 
+    setUpZone(row=3){
+        
+        this.zones.classList.add('zones')
+
+        const types = ["lead", "followUp", "finish"]
+        
         for(let row = 0 ; row < 3 ; row++){
             const zone = document.createElement('li')
             zone.classList.add("zone")
 
-            zone.dataset.row = row
-            grid.appendChild(zone)
-        }
-
-        this.ele.appendChild(grid)
-        grid.addEventListener('click',this.handleClick)
-    }
-
-    setDeck(deck){
-        const playerDeck = document.createElement('li')
-        playerDeck.id ="playerDeck"
-        playerDeck.classList.add('myDeck')
-        for(let deck = 0 ; deck < 1 ; deck++){
-
-            playerDeck.dataset.deck = deck
+            zone.addEventListener('click',this.handleClick)
             
-
+            zone.dataset.type = types[row]
+            zone.dataset.occupied = false 
+            zone.dataset.row = row
+            this.zones.appendChild(zone)
         }
-        this.ele.appendChild(playerDeck)
-    }
-
-    setDiscard(n=1){
-        // debugger
-        const playerDiscard = document.createElement('li')
-        playerDiscard.classList.add('myDiscard')
-
-        playerDiscard.id ="playerDiscard"
-        // const discard = []
-
         
-        // discard.push([])
-
-        
-        this.ele.appendChild(playerDiscard)
+        this.playerBoard.appendChild(this.zones)
     }
-
-    playerHand(n=1){
-        const playerHand = document.createElement('li')
-        playerHand.classList.add('myHand')
-
-        playerHand.id ="playerHand"
-        
-        this.ele.appendChild(playerHand)
-        
-
-        playerHand.addEventListener("click",this.grabCard)
-    }
-
-    diceTray(n=1){
-        const diceTray = document.createElement('li')
-        diceTray.classList.add('myDice')
-
-        diceTray.id ="diceTray"
-        
-        this.ele.appendChild(diceTray)
-    }
-
-    grabCard(e){
-        e.preventDefault()
-        let card= e.target
-    }
-
-    
-
-
-   
 
     handleClick(e){
+        debugger
         e.preventDefault()
         let zone = e.target 
 
@@ -93,12 +45,78 @@ export default class Board {
     }
 
     makeMove(zone){
-        let row = zone.dataset.row
 
-        let pos = [row]
+        if(this.isValidMove(zone)){
+      
+        this.selected.HTMLElement.remove()
+        
+        const card = document.createElement("li")
+        card.classList.add('card')
+        card.classList.add(this.selected.cardObj.type)
+        card.classList.add(this.selected.cardObj.attribute)
+        
 
-        // this.game.playMove(pos)
+        zone.dataset.occupied = true 
+
+        
+
+        zone.appendChild(card)
+        
+        } else {
+            console.log("Not a valid move!")
+        }
+    
+        
     }
+    
+    setDeck(deck){
+        const playerDeck = document.createElement('li')
+
+        playerDeck.classList.add('deck')
+
+        this.playerBoard.appendChild(playerDeck)
+    }
+
+    setDiscard(n=1){
+        // debugger
+        const playerDiscard = document.createElement('li')
+        playerDiscard.classList.add('discard')
+
+        this.playerBoard.appendChild(playerDiscard)
+    }
+
+    playerHand(n=1){
+        // debugger
+        this.hand.classList.add('hand')
+
+        this.playerBoard.appendChild(this.hand)
+        
+        this.hand.addEventListener("click",this.grabCard)
+    }
+
+    diceTray(n=1){
+        const diceTray = document.createElement('li')
+
+        diceTray.classList.add('diceTray')
+    
+        this.playerBoard.appendChild(diceTray)
+    }
+
+    isValidMove(zone){
+        const zoneType = zone.dataset.type
+        const cardType = this.selected.cardObj.type
+
+        if(zoneType === cardType){
+            return true 
+        } 
+        return false 
+
+    }
+
+    
+
+    
+
 
 }
 
