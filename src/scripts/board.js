@@ -5,6 +5,8 @@ export default class Board {
         this.handleClick = this.handleClick.bind(this)
         this.setDeck()
         this.setDiscard()
+        this.playerHand()
+        this.diceTray()
     }
 
 
@@ -38,7 +40,7 @@ export default class Board {
     }
 
     setDiscard(n=1){
-        debugger
+        // debugger
         const playerDiscard = document.createElement('li')
         playerDiscard.classList.add('myDiscard')
 
@@ -50,6 +52,32 @@ export default class Board {
 
         
         this.ele.appendChild(playerDiscard)
+    }
+
+    playerHand(n=1){
+        const playerHand = document.createElement('li')
+        playerHand.classList.add('myHand')
+
+        playerHand.id ="playerHand"
+        
+        this.ele.appendChild(playerHand)
+        
+
+        playerHand.addEventListener("click",this.grabCard)
+    }
+
+    diceTray(n=1){
+        const diceTray = document.createElement('li')
+        diceTray.classList.add('myDice')
+
+        diceTray.id ="diceTray"
+        
+        this.ele.appendChild(diceTray)
+    }
+
+    grabCard(e){
+        e.preventDefault()
+        let card= e.target
     }
 
     
