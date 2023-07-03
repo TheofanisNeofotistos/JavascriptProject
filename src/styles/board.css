@@ -9,6 +9,17 @@
     background-size: cover;
 }
 
+#boardTwo{
+    height: 550px;
+    position: relative;
+    border: 5px solid red;
+    background-color: red;
+    width: 970px;
+    background-image: url("/WrestlingCardGame/images/MainEventPlaymatt.png");
+    background-position: center;
+    background-size: cover;
+} 
+
 .zones{
     display: flex;
     flex-wrap: wrap;
@@ -28,6 +39,7 @@
     width: 150px;
     height: 300px;
     border: 5px solid yellow;
+    overflow: scroll;
     
 }
 

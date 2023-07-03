@@ -6,7 +6,7 @@ const deck = [
     {id: 5, title: "hiptoss" , attribute: "grapple" , type: "lead", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/05-HipToss-1.png"},
     {id: 6, title: "armbar" , attribute: "submission" , type: "lead", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/06-Armbar-1.png"},
     {id: 7, title: "forearmShot" , attribute: "strike" , type: "lead", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/07-ForearmShot-1.png"},
-    {id: 8, title: "scoopSlam" , attribute: "grapple" , type: "lead", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/08-ScoopSlam-1"},
+    {id: 8, title: "scoopSlam" , attribute: "grapple" , type: "lead", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/08-ScoopSlam-1.png"},
     {id: 9, title: "faceStretch" , attribute: "submission" , type: "lead", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/09-FaceStretch-1.png"},
     {id: 10, title: "headbutt" , attribute: "strike" , type: "lead", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/10-Headbutt-1.png"},
     {id: 11, title: "ArmDrag" , attribute: "grapple" , type: "lead", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/11-ArmDrag-1.png"},
@@ -15,7 +15,7 @@ const deck = [
     {id: 14, title: "ddt" , attribute: "grapple" , type: "followUp", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/14-Ddt-1.png"},
     {id: 15, title: "bowAndArrow" , attribute: "submission" , type: "followUp", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/15-BowAndArrow-1.png"},
     {id: 16, title: "shoulderBlock" , attribute: "strike" , type: "followUp", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/16-ShoulderBlock-1.png"},
-    {id: 17, title: "suplex" , attribute: "grapple" , type: "followUp", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/17-Suplex-1"},
+    {id: 17, title: "suplex" , attribute: "grapple" , type: "followUp", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/17-Suplex-1.png"},
     {id: 18, title: "sleeperHold" , attribute: "submission" , type: "followUp", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/18-SleeperHold-1.png"},
     {id: 19, title: "elbowStrikes" , attribute: "strike" , type: "followUp", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/19-ElbowStrikes-1.png"},
     {id: 20, title: "neckbreaker" , attribute: "grapple" , type: "followUp", effect: undefined,img: "/WrestlingCardGame/images/deckOneArt/20-Neckbreaker-1.png"},
@@ -32,5 +32,7 @@ const deck = [
     
 
 ]
+
+
 
 export default deck
