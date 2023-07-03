@@ -31,9 +31,7 @@
     
 }
 
-li:hover{
-    background: grey;
-}
+
 
 
 .deck{
@@ -90,20 +88,23 @@ li:hover{
     background-color: transparent;
     top: 100px;
     left: 750px;
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 150px;
     border: 5px solid black;
     z-index: 20;
     list-style: none;
-    background-image: url("/WrestlingCardGame/images/deckArt/00-Theo-the-Greek-Neo-1.webp");
+    background-image: url("/WrestlingCardGame/images/deckOneArt/00-ElSuperHombreALT-1.png");
+    /* background-position: center; */
     background-position: center;
-    background-size: cover;
+    background-size: contain;
 }
 
 .diceTray:hover{
     background-color: grey;
     
 }
+
+
 
 
 

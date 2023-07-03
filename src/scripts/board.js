@@ -1,3 +1,7 @@
+import deck from "./deck"
+import Card from "./card"
+
+
 export default class Board {
 
     constructor(playerBoard){
@@ -5,6 +9,7 @@ export default class Board {
         this.handleClick = this.handleClick.bind(this)
         this.zones = document.createElement('ul')
         this.hand = document.createElement('ul')
+        this.deck = deck
         this.setDeck()
         this.setDiscard()
         this.playerHand()
@@ -54,6 +59,7 @@ export default class Board {
         card.classList.add('card')
         card.classList.add(this.selected.cardObj.type)
         card.classList.add(this.selected.cardObj.attribute)
+        card.style.backgroundImage = `url(${this.selected.cardObj.img})`
         
 
         zone.dataset.occupied = true 
@@ -61,13 +67,17 @@ export default class Board {
         
 
         zone.appendChild(card)
-        
+        this.selected = undefined
+
         } else {
             console.log("Not a valid move!")
         }
     
+    
         
     }
+
+
     
     setDeck(deck){
         const playerDeck = document.createElement('li')
@@ -75,6 +85,8 @@ export default class Board {
         playerDeck.classList.add('deck')
 
         this.playerBoard.appendChild(playerDeck)
+
+        playerDeck.addEventListener("click", this.drawCard.bind(this))
     }
 
     setDiscard(n=1){
@@ -108,10 +120,21 @@ export default class Board {
 
         if(zoneType === cardType){
             return true 
+
         } 
         return false 
 
     }
+
+    drawCard(deck){
+      let drawnCard = this.deck.pop()
+
+      new Card(drawnCard.title,drawnCard.type,drawnCard.attribute,drawnCard.img,this.hand,this.playerBoard)
+
+
+    }
+
+
 
     
 

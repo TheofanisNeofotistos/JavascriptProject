@@ -5,32 +5,29 @@
     background-color: aqua;
     z-index: 20;
     height: 90px;
+    background-size: cover;
+    background-position: center;
     
 
 }
 
 .card.strike{
     background-color: yellow;
-    background-image: url("/WrestlingCardGame/images/deckArt/01-Punch.webp");
-    background-position: center;
-    background-size: cover;
+
+    
 
 }
 
 .card.grapple{
     background-color: blue;
-    background-image: url("/WrestlingCardGame/images/deckArt/17-AllAmericanSuplex-1.webp");
-    background-position: center;
-    background-size: cover;
+    
 }
 
 .card.submission{
     background-color: purple;
-    background-image: url("/WrestlingCardGame/images/deckArt/Screen\ Shot\ 2023-06-30\ at\ 17.36.54\ PM.png");
-    background-position: center;
-    background-size: cover;
+    
 }
 
 .selected{
     border: 5px solid #FFFEC4;
-}
+} 
