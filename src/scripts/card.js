@@ -1,4 +1,5 @@
 export default class Card{
+
     constructor(title,type,attribute,img,container,board){
         this.type = type 
         this.attribute = attribute
@@ -31,6 +32,7 @@ export default class Card{
     }
 
     handleClick(e){
+        
         e.preventDefault()
         let selectedCard = e.target
 
@@ -46,7 +48,7 @@ export default class Card{
 
        this.board.selected = {HTMLElement: selectedCard , cardObj: this}
       
-
+       debugger
     }
 
   

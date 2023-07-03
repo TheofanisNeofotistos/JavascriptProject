@@ -1,5 +1,7 @@
 import deck from "./deck"
 import Card from "./card"
+import Game from "./game"
+
 
 
 export default class Board {
@@ -9,7 +11,7 @@ export default class Board {
         this.handleClick = this.handleClick.bind(this)
         this.zones = document.createElement('ul')
         this.hand = document.createElement('ul')
-        this.deck = deck
+        this.deck = [...deck]
         this.setDeck()
         this.setDiscard()
         this.playerHand()
@@ -42,7 +44,7 @@ export default class Board {
     }
 
     handleClick(e){
-        debugger
+        // debugger
         e.preventDefault()
         let zone = e.target 
 
@@ -50,6 +52,7 @@ export default class Board {
     }
 
     makeMove(zone){
+        debugger
 
         if(this.isValidMove(zone)){
       
@@ -68,6 +71,8 @@ export default class Board {
 
         zone.appendChild(card)
         this.selected = undefined
+        this.game.startTurn()
+
 
         } else {
             console.log("Not a valid move!")
@@ -129,7 +134,7 @@ export default class Board {
     drawCard(deck){
       let drawnCard = this.deck.pop()
 
-      new Card(drawnCard.title,drawnCard.type,drawnCard.attribute,drawnCard.img,this.hand,this.playerBoard)
+      new Card(drawnCard.title,drawnCard.type,drawnCard.attribute,drawnCard.img,this.hand,this)
 
 
     }
