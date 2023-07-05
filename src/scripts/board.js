@@ -163,7 +163,8 @@ export default class Board {
                 if(leadZone.dataset.occupied === 'true'){
                     return true
                 }else {
-                    console.log("no lead in play")
+                    let error = document.getElementById("noLead")
+                    error.style.display = "block"
                     return false 
                 }
             }
@@ -171,9 +172,13 @@ export default class Board {
             if(zone.dataset.type === "finish" ){
                 // debugger
                 if(followUpZone.dataset.occupied === 'true' && leadZone.dataset.occupied === 'true'){
+                    let error = document.getElementById("winner")
+                    error.style.display = "block"
                     return true
                 }else {
                     console.log("no follow up in play")
+                    let error = document.getElementById("noFollowUp")
+                    error.style.display = "block"
                     return false 
                 }
             }

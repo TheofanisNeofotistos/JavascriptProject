@@ -12,7 +12,7 @@
 }
 
 .card:hover {
-    transform: scale(2.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(2.5); 
 }
 
 .card.strike{
@@ -35,3 +35,67 @@
 .selected{
     border: 5px solid #FFFEC4;
 } 
+
+.btn{
+    position: absolute;
+    padding: 10px 60px;
+    background: yellow;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 30px;
+    z-index: 100;
+    top: 100px;
+   left: 30px;
+  }
+
+  .popup{
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    z-index: 40;
+  }
+
+  .open-popup{
+    visibility: visible;
+    top: 1%;
+    transform: translate(-50%,50%) scale(1);
+  }
+
+  .popup img{
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(red,green,blue,alpha);
+  }
+
+  .popup h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+  }
+
+  .popup button{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    color:  purple;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(red,green,blue,alpha);
+
+  }

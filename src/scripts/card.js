@@ -53,7 +53,9 @@ export default class Card{
 
        this.board.selected = {HTMLElement: selectedCard , cardObj: this}
         } else {
-            console.log("You are not the current player")
+            // console.log("You are not the current player")
+            let error = document.getElementById("notCurrentPlayer")
+            error.style.display = "block"
         }
       
     //    debugger
