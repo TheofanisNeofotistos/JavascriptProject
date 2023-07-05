@@ -54,8 +54,14 @@ export default class Card{
        this.board.selected = {HTMLElement: selectedCard , cardObj: this}
         } else {
             // console.log("You are not the current player")
-            let error = document.getElementById("notCurrentPlayer")
-            error.style.display = "block"
+            // let error = document.getElementById("notCurrentPlayer")
+            // error.style.display = "block"
+
+           
+
+            let error = document.getElementById("flashModal");
+            error.getElementsByTagName("p")[0].innerText = "Sorry! You are not the current player!"
+            error.classList.add("open-popup")
         }
       
     //    debugger

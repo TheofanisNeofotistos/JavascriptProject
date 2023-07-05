@@ -19,6 +19,14 @@ export default class Board {
         this.diceTray()
         this.setUpZone()
         this.selected = undefined
+
+        // this.flashes = {
+        //     win: false,
+        //     invalid: false,
+        //     noLead: false,
+        //     noFollowUp: false,
+        //     notCurrentPlayer: false
+        // }
     }
 
 
@@ -99,13 +107,24 @@ export default class Board {
 
 
         } else {
-            let error = document.getElementById("invalidMove")
-            error.style.display = "block"
+
+           
+            this.openFlashModal("Invalid Move!")
+            
+        
+            
             // console.log("Not a valid move!")
         }
     
     
         
+    }
+
+    openFlashModal(string){
+
+        let error = document.getElementById("flashModal");
+            error.getElementsByTagName("p")[0].innerText = string
+            error.classList.add("open-popup")
     }
 
 
@@ -163,8 +182,10 @@ export default class Board {
                 if(leadZone.dataset.occupied === 'true'){
                     return true
                 }else {
-                    let error = document.getElementById("noLead")
-                    error.style.display = "block"
+                    this.openFlashModal("No Lead in play!")
+
+                    // let error = document.getElementById("noLead")
+                    // error.style.display = "block"
                     return false 
                 }
             }
@@ -172,13 +193,17 @@ export default class Board {
             if(zone.dataset.type === "finish" ){
                 // debugger
                 if(followUpZone.dataset.occupied === 'true' && leadZone.dataset.occupied === 'true'){
-                    let error = document.getElementById("winner")
-                    error.style.display = "block"
+
+                    this.openFlashModal("YOU WIN!!!!")
+
+                    // let error = document.getElementById("winner")
+                    // error.style.display = "block"
                     return true
                 }else {
-                    console.log("no follow up in play")
-                    let error = document.getElementById("noFollowUp")
-                    error.style.display = "block"
+                    // console.log("no follow up in play")
+                    this.openFlashModal("No Follow Up in play!")
+                    // let error = document.getElementById("noFollowUp")
+                    // error.style.display = "block"
                     return false 
                 }
             }

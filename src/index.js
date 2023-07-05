@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded",() => {
       popup.classList.add("open-popup")
     }
 
-    function closePopup(){
-        let popup = document.getElementById("popup")
+    function closePopup(id){
+        let popup = document.getElementById(id)
       popup.classList.remove("open-popup")
     }
 
@@ -44,6 +44,12 @@ document.addEventListener("DOMContentLoaded",() => {
     let closeButton = document.getElementById("closeButton")
 
     closeButton.addEventListener("click",()=>{
-        closePopup()
+        closePopup("popup")
+    })
+
+    let closeFlashButton = document.getElementById("closeFlashButton")
+
+    closeFlashButton.addEventListener("click",()=>{
+        closePopup("flashModal")
     })
 })
