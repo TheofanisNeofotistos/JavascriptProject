@@ -1,3 +1,10 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 #boardOne{
   
     height: 550px;
@@ -121,30 +128,9 @@
 .top-container{
     display: flex;
     justify-content: space-evenly;
+    width: 900px;
 }
 
-#invalidMove{
-    display: none;
-
-}
-
-#notCurrentPlayer{
-    display: none;
-
-}
-
-#winner{
-    display: none;
-
-}
-
-#noLead{
-    display: none;
-}
-
-#noFollowUp{
-    display: none;
-}
 
 
  
@@ -163,7 +149,7 @@
     border-radius: 30px;
     z-index: 100;
     top: 100px;
-    left: 30px;
+    left: 100px;
   }
 
   .popup, .flashModal{
