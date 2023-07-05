@@ -6,18 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- <link rel="stylesheet" href="./dist/main.css" /> -->
+    <script src="https://kit.fontawesome.com/a1290642b1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./src/styles/board.css">
     <link rel="stylesheet" href="./src/styles/card.css">
     <link rel="icon" href="./src/styles/favicon.ico">
     <script src="./dist/main.js"></script>
-    <title>SRG Supershow Game</title>
+    <title>Supershow Basic Tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
+  <p class="top-container">
+    <a class="linkedIn" href="https://www.linkedin.com/in/theofanis-neofotistos-483b33254/">
+      <i class="fa-brands fa-linkedin fa-2xl" style="color: #7b00e0;"></i>
+    </a>
+    <a class="twitter" href="https://twitter.com/TheoNeo23">
+      <i class="fa-brands fa-square-twitter fa-2xl" style="color: #7b00e0;"></i>
+    </a>
+
+    
+
+    <a class="github" href="https://github.com/TheofanisNeofotistos">
+      <i class="fa-brands fa-github-alt fa-2xl" style="color: #7b00e0;"></i>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=GSXX2nMubkM">
+      <i class="fa-brands fa-youtube fa-2xl" style="color: #7b00e0;">full tutorial</i>
+    </a>
+
+  </p>
+  
+  <div class="container">
+    <button id="openPopup" type="submit" class="btn" > RULES </button>
+    <div class="popup" id="popup">
+      <img src="/WrestlingCardGame/images/SRG Universe Logo - Transparent.png">
+      <h2>Welcome to the Supershow!</h2>
+      <p>Rules of Supershow</p>
+      <p>On your turn you can...</p>
+      <li>Play a LEAD at any time</li>
+      <li>Play a Follow Up if you have a LEAD in play</li>
+      <li>Play a FINISH if you have a Follow Up in play </li>
+      <p>Repeat the steps above until we have a winner!!</p>
+      <button type="button" id="closeButton">CLOSE</button>
+    </div>
+  
+  </div>
+  
+  
+  
+  
+  
   <body>
     <!-- <div id="main"></div> -->
     <div id="boardOne"></div>
+    <div id="invalidMove"> Invalid Move!</div>
+    <div id="notCurrentPlayer"> Not the current player!</div>
+    <div id="winner">YOU WIN!!</div>
     <div id="boardTwo"></div>
-
+    
+    
+    
   </body>
+  
+  
+    <p class="website-publish">© 2023 Theofanis Neofotistos.</p>
 
 </html>

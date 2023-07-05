@@ -32,9 +32,14 @@ export default class Card{
     }
 
     handleClick(e){
+
+        const turnPlayer = this.board.game.turnPlayer
+
         
         e.preventDefault()
         let selectedCard = e.target
+
+        if(turnPlayer === this.board){
 
        if( this.board.selected !== undefined){
         this.board.selected.HTMLElement.classList.remove('selected')
@@ -47,8 +52,11 @@ export default class Card{
        
 
        this.board.selected = {HTMLElement: selectedCard , cardObj: this}
+        } else {
+            console.log("You are not the current player")
+        }
       
-       debugger
+    //    debugger
     }
 
   

@@ -6,8 +6,9 @@ import Game from "./game"
 
 export default class Board {
 
-    constructor(playerBoard){
+    constructor(playerBoard,number){
         this.playerBoard = playerBoard 
+        this.number = number
         this.handleClick = this.handleClick.bind(this)
         this.zones = document.createElement('ul')
         this.hand = document.createElement('ul')
@@ -21,12 +22,33 @@ export default class Board {
     }
 
 
+    // shuffle(deck) {
+    //     let currentIndex = deck.length,  randomIndex;
+      
+    //     // While there remain elements to shuffle.
+    //     while (currentIndex != 0) {
+      
+    //       // Pick a remaining element.
+    //       randomIndex = Math.floor(Math.random() * currentIndex);
+    //       currentIndex--;
+      
+    //       // And swap it with the current element.
+    //       [deck[currentIndex], deck[randomIndex]] = [
+    //         deck[randomIndex], deck[currentIndex]];
+    //     }
+      
+    //     return deck;
+    // }
+
+
 
     setUpZone(row=3){
         
         this.zones.classList.add('zones')
 
         const types = ["lead", "followUp", "finish"]
+
+        
         
         for(let row = 0 ; row < 3 ; row++){
             const zone = document.createElement('li')
@@ -35,6 +57,7 @@ export default class Board {
             zone.addEventListener('click',this.handleClick)
             
             zone.dataset.type = types[row]
+            zone.id = types[row] + this.number
             zone.dataset.occupied = false 
             zone.dataset.row = row
             this.zones.appendChild(zone)
@@ -52,7 +75,7 @@ export default class Board {
     }
 
     makeMove(zone){
-        debugger
+        // debugger
 
         if(this.isValidMove(zone)){
       
@@ -71,11 +94,14 @@ export default class Board {
 
         zone.appendChild(card)
         this.selected = undefined
+        this.game.swapTurn()
         this.game.startTurn()
 
 
         } else {
-            console.log("Not a valid move!")
+            let error = document.getElementById("invalidMove")
+            error.style.display = "block"
+            // console.log("Not a valid move!")
         }
     
     
@@ -91,7 +117,7 @@ export default class Board {
 
         this.playerBoard.appendChild(playerDeck)
 
-        playerDeck.addEventListener("click", this.drawCard.bind(this))
+        // playerDeck.addEventListener("click", this.drawCard.bind(this))
     }
 
     setDiscard(n=1){
@@ -123,11 +149,39 @@ export default class Board {
         const zoneType = zone.dataset.type
         const cardType = this.selected.cardObj.type
 
+        
+        
         if(zoneType === cardType){
-            return true 
+            
 
+            
+            const leadZone = document.getElementById('lead'+ this.number)
+            const followUpZone = document.getElementById('followUp' + this.number)
+            
+            if(zone.dataset.type === "followUp"){
+                // debugger
+                if(leadZone.dataset.occupied === 'true'){
+                    return true
+                }else {
+                    console.log("no lead in play")
+                    return false 
+                }
+            }
+            
+            if(zone.dataset.type === "finish" ){
+                // debugger
+                if(followUpZone.dataset.occupied === 'true' && leadZone.dataset.occupied === 'true'){
+                    return true
+                }else {
+                    console.log("no follow up in play")
+                    return false 
+                }
+            }
+            
+            return true 
         } 
-        return false 
+            
+        return false
 
     }
 
@@ -139,12 +193,14 @@ export default class Board {
 
     }
 
-
-
     
 
-    
+   
+
 
 
 }
+
+
+
 

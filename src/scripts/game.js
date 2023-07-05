@@ -7,6 +7,8 @@ export default class Game {
         this.boardOne.game = this
         this.boardTwo.game = this
 
+        this.turnPlayer = this.boardOne
+
 
     }
 
@@ -20,6 +22,7 @@ export default class Game {
         this.boardTwo.drawCard()
 
         this.startTurn()
+        let turnPlayer = this.boardOne
         // this.playCard()
         // this.gameOver()
 
@@ -27,52 +30,50 @@ export default class Game {
 
     startTurn(){
 
-        let turnPlayer = undefined
-        // if(boardOne.diceRoll() > boardTwo.diceRoll()){
-        if(true){
-            turnPlayer = this.boardOne;
-        }
-        else {
-            turnPlayer = this.boardTwo;
-        }
+        
+        // // if(boardOne.diceRoll() > boardTwo.diceRoll()){
+        // if(true){
+        //     turnPlayer = this.boardOne;
+        // }
+        // else {
+        //     turnPlayer = this.boardTwo;
+        // }
       
-        turnPlayer.drawCard()
+        this.turnPlayer.drawCard()
+        
 
         
     }
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    finisherPhase(){
-        let finisher = undefined
-        
-        finisher = turnPlayer.diceRoll()
-
-        let pinCount = 1
-
-        while(pinCount <= 3){
-            let kickoutRoll = !turnPlayer.diceRoll()
-
-            if(kickoutRoll >= finisher){
-                console.log("KICKOUT")
-                resetBoard()
-            } else if(kickoutRoll < finisher){
-                console.log(pinCount)
-            }
-            console.log("WINNER!!!")
-            gameOver()
+    swapTurn() {
+    
+        if (this.turnPlayer === this.boardOne ) {
+          this.turnPlayer = this.boardTwo;
+        } else {
+          this.turnPlayer = this.boardOne;
         }
     }
+
+      
+  
+    // finisherPhase(){
+    //     let finisher = undefined
+        
+    //     finisher = turnPlayer.diceRoll()
+
+    //     let pinCount = 1
+
+    //     while(pinCount <= 3){
+    //         let kickoutRoll = !turnPlayer.diceRoll()
+
+    //         if(kickoutRoll >= finisher){
+    //             console.log("KICKOUT")
+    //             resetBoard()
+    //         } else if(kickoutRoll < finisher){
+    //             console.log(pinCount)
+    //         }
+    //         console.log("WINNER!!!")
+    //         gameOver()
+    //     }
+    // }
 }
