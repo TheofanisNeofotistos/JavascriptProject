@@ -4,7 +4,6 @@ export default class Card{
         this.type = type 
         this.attribute = attribute
         this.title = title 
-        // this.flavor = flavor 
         this.img =img
         this.container = container
         this.board = board
@@ -53,12 +52,7 @@ export default class Card{
 
        this.board.selected = {HTMLElement: selectedCard , cardObj: this}
         } else {
-            // console.log("You are not the current player")
-            // let error = document.getElementById("notCurrentPlayer")
-            // error.style.display = "block"
-
            
-
             let error = document.getElementById("flashModal");
             error.getElementsByTagName("p")[0].innerText = "Sorry! You are not the current player!"
             error.classList.add("open-popup")

@@ -20,13 +20,7 @@ export default class Board {
         this.setUpZone()
         this.selected = undefined
 
-        // this.flashes = {
-        //     win: false,
-        //     invalid: false,
-        //     noLead: false,
-        //     noFollowUp: false,
-        //     notCurrentPlayer: false
-        // }
+
     }
 
 
@@ -75,7 +69,7 @@ export default class Board {
     }
 
     handleClick(e){
-        // debugger
+        
         e.preventDefault()
         let zone = e.target 
 
@@ -83,7 +77,7 @@ export default class Board {
     }
 
     makeMove(zone){
-        // debugger
+        
 
         if(this.isValidMove(zone)){
       
@@ -113,7 +107,7 @@ export default class Board {
             
         
             
-            // console.log("Not a valid move!")
+            
         }
     
     
@@ -136,11 +130,11 @@ export default class Board {
 
         this.playerBoard.appendChild(playerDeck)
 
-        // playerDeck.addEventListener("click", this.drawCard.bind(this))
+       
     }
 
     setDiscard(n=1){
-        // debugger
+        
         const playerDiscard = document.createElement('li')
         playerDiscard.classList.add('discard')
 
@@ -148,7 +142,7 @@ export default class Board {
     }
 
     playerHand(n=1){
-        // debugger
+     
         this.hand.classList.add('hand')
 
         this.playerBoard.appendChild(this.hand)
@@ -178,32 +172,27 @@ export default class Board {
             const followUpZone = document.getElementById('followUp' + this.number)
             
             if(zone.dataset.type === "followUp"){
-                // debugger
+               
                 if(leadZone.dataset.occupied === 'true'){
                     return true
                 }else {
                     this.openFlashModal("No Lead in play!")
 
-                    // let error = document.getElementById("noLead")
-                    // error.style.display = "block"
                     return false 
                 }
             }
             
             if(zone.dataset.type === "finish" ){
-                // debugger
+                
                 if(followUpZone.dataset.occupied === 'true' && leadZone.dataset.occupied === 'true'){
 
                     this.openFlashModal("YOU WIN!!!!")
 
-                    // let error = document.getElementById("winner")
-                    // error.style.display = "block"
                     return true
                 }else {
-                    // console.log("no follow up in play")
+                   
                     this.openFlashModal("No Follow Up in play!")
-                    // let error = document.getElementById("noFollowUp")
-                    // error.style.display = "block"
+                
                     return false 
                 }
             }
