@@ -37,9 +37,8 @@
 } 
 
 .btn{
-    display: flex;
-    justify-content: left;
-    /* position: absolute; */
+    
+    position: relative;
     padding: 10px 60px;
     background: yellow;
     border: 0;
